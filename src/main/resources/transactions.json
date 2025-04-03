@@ -1,0 +1,9 @@
+[
+  {"transactionDate": "2020-11-01", "vendor": "Morrisons", "type": "card", "amount": 10.40, "category": "Groceries"},
+  {"transactionDate": "2020-10-28", "vendor": "CYBG", "type": "direct debit", "amount": 600.00, "category": "MyMonthlyDD"},
+  {"transactionDate": "2020-09-28", "vendor": "PureGym", "type": "direct debit", "amount": 40.00, "category": "MyMonthlyDD"},
+  {"transactionDate": "2020-10-01", "vendor": "M&S", "type": "card", "amount": 5.99, "category": "Groceries"},
+  {"transactionDate": "2020-11-28", "vendor": "CYBG", "type": "direct debit", "amount": 200.00, "category": "MyMonthlyDD"},
+  {"transactionDate": "2020-11-28", "vendor": "PureGym", "type": "direct debit", "amount": 40.00, "category": "Groceries"},
+  {"transactionDate": "2020-09-30", "vendor": "McMillan", "type": "internet", "amount": 10.00, "category": " "}
+]
