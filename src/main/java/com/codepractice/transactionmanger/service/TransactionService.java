@@ -1,4 +1,5 @@
-package com.codepractice.transaction_classifier.transaction_classifier_service;
+package com.codepractice.transactionmanger.service;
+import com.codepractice.transactionmanger.model.Transaction;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -8,7 +9,6 @@ import java.io.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.Comparator;
 import java.util.List;
@@ -28,7 +28,7 @@ public class TransactionService {
         objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
     }
-    private List<Transaction> loadTransactions() throws IOException {
+    public List<Transaction> loadTransactions() throws IOException {
         ClassPathResource resource = new ClassPathResource("transactions.json");
         try (InputStream inputStream = resource.getInputStream()) {
             return objectMapper.readValue(inputStream, new TypeReference<List<Transaction>>(){});
@@ -39,16 +39,13 @@ public class TransactionService {
         List<Transaction> transactions = loadTransactions();
 
         return transactions.stream()
-                .filter(t -> {
-                    String transactionCategory = Optional.ofNullable(t.getCategory()).orElse("").trim();
-                    return category.trim().isEmpty() ? transactionCategory.isEmpty() : category.equalsIgnoreCase(transactionCategory);
-                })
-                .sorted(Comparator.comparing(Transaction::getTransactionDate).reversed()) // Sort by date desc
-                .collect(toList());
+                .filter(t -> category.equalsIgnoreCase(t.getCategory()))
+                .sorted(Comparator.comparing(Transaction::getTransactionDate).reversed())
+                .collect(Collectors.toList());
     }
     //Requirement 2: Get total outgoing per category
 
-    Map<String, BigDecimal> getTotalOutgoingPerCategory() throws IOException {
+    public Map<String, BigDecimal> getTotalOutgoingPerCategory() throws IOException {
         List<Transaction> transactions = loadTransactions();
         return transactions.stream()
                 .filter(t -> t.getAmount().compareTo(BigDecimal.ZERO) > 0)

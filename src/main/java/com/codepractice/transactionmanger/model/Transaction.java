@@ -1,4 +1,4 @@
-package com.codepractice.transaction_classifier.transaction_classifier_service;
+package com.codepractice.transactionmanger.model;
 
 import lombok.*;
 
