@@ -1,0 +1,15 @@
+1)endpoints to test the api
+All transactions for a given category- latest first
+http://localhost:8080/transactions/category/Groceries
+
+2)Total outgoing per category
+http://localhost:8080/transactions/total-outgoing
+
+3)Monthly average spent in a given category
+http://localhost:8080/transactions/average-spend/MyMonthlyDD
+
+4)Highest spend in a given category, for a given year
+http://localhost:8080/transactions/average-spend/MyMonthlyDD
+
+5)Lowest spend in a given category,for a given year
+http://localhost:8080/transactions/lowest-spend/MyMonthlyDD/2020
