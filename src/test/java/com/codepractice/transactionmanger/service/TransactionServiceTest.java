@@ -57,4 +57,28 @@ class TransactionServiceTest {
 
         assertEquals(3, totals.size(), "Should contain 3 categories");
     }
+    @Test
+    void getMonthlyAverageSpentPerCategoryTest() throws IOException {
+        // Groceries data:
+        // 2020-11: 10.40 + 40.00 = 50.40
+        // 2020-10: 5.99
+        // Avg = (50.40 + 5.99) / 2 = 28.20 (rounded to 2 decimal places)
+        BigDecimal avg = transactionService.getMonthlyAverageSpentPerCategory("Groceries");
+        assertEquals(new BigDecimal("28.20"), avg);
+    }
+
+    @Test
+    void getHighestSpendPerCategoryPerYearTest() throws IOException {
+        // Category: MyMonthlyDD, Year: 2020
+        // Amounts: 600.00, 40.00, 200.00 → highest = 600.00
+        BigDecimal highest = transactionService.getHighestSpendPerCategoryPerYear("MyMonthlyDD", 2020);
+        assertEquals(new BigDecimal("600.00"), highest);
+    }
+    @Test
+    void getLowestSpendPerCategoryPerYearTest() throws IOException {
+        // Category: MyMonthlyDD, Year: 2020
+        // Amounts: 600.00, 40.00, 200.00 → lowest = 40.00
+        BigDecimal lowest = transactionService.getLowestSpendPerCategoryPerYear("MyMonthlyDD", 2020);
+        assertEquals(new BigDecimal("40.00"), lowest);
+    }
 }

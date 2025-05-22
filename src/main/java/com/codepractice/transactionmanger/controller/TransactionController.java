@@ -43,13 +43,13 @@ public class TransactionController {
     //Highest spend per category per year
     @GetMapping("/highest-spend/{category}/{year}")
     public ResponseEntity <BigDecimal> getHighestSpend(@PathVariable String category,@PathVariable int year)throws IOException{
-        BigDecimal result=transactionService.getHigheSpendPerCategoryPerYear(category, year);
+        BigDecimal result=transactionService.getHighestSpendPerCategoryPerYear(category, year);
         return ResponseEntity.ok(result);
     }
     //Lowest spend per category per year
     @GetMapping("/lowest-spend/{category}/{year}")
     public ResponseEntity<BigDecimal> getLowestSpend(@PathVariable String category,@PathVariable int year)throws IOException{
-        BigDecimal result=transactionService.getLowestSpentPerCategoryPerYear(category,year);
+        BigDecimal result=transactionService.getLowestSpendPerCategoryPerYear(category,year);
         return ResponseEntity.ok(result);
     }
 }
