@@ -9,7 +9,7 @@ http://localhost:8080/transactions/total-outgoing
 http://localhost:8080/transactions/average-spend/MyMonthlyDD
 
 4)Highest spend in a given category, for a given year
-http://localhost:8080/transactions/average-spend/MyMonthlyDD
+http://localhost:8080/transactions/highest-spend/MyMonthlyDD/2020
 
 5)Lowest spend in a given category,for a given year
 http://localhost:8080/transactions/lowest-spend/MyMonthlyDD/2020
